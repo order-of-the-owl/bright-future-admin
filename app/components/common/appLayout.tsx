@@ -1,16 +1,62 @@
 'use client';
+import Image from 'next/image';
 
 import React from 'react';
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import {
+  DashboardOutlined,
+  BankOutlined,
+  ApartmentOutlined,
+  TeamOutlined,
+  UsergroupAddOutlined,
+  BookOutlined,
+  GiftOutlined,
+  FileTextOutlined,
+  HistoryOutlined,
+  BarChartOutlined,
+  DollarOutlined,
+  IdcardOutlined,
+  SettingOutlined,
+} from '@ant-design/icons';
 import { Layout, Menu, ConfigProvider } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
+
+const itemLabels = [
+  'Dashboard',
+  'Universities',
+  'Departments',
+  'Instructors',
+  'Students',
+  'Courses',
+  'Coupons',
+  'Invoices',
+  'Transaction History',
+  'Reports & Analysis',
+  'Payroll',
+  'Profile',
+  'Settings',
+];
+
+const items = [
+  DashboardOutlined,
+  BankOutlined,
+  ApartmentOutlined,
+  TeamOutlined,
+  UsergroupAddOutlined,
+  BookOutlined,
+  GiftOutlined,
+  FileTextOutlined,
+  HistoryOutlined,
+  BarChartOutlined,
+  DollarOutlined,
+  IdcardOutlined,
+  SettingOutlined,
+].map(
   (icon, index) => ({
     key: String(index + 1),
     icon: React.createElement(icon),
-    label: `nav ${index + 1}`,
+    label: itemLabels[index],
   }),
 );
 
@@ -36,6 +82,7 @@ const App: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           onBreakpoint={(broken) => {
             setBroken(broken);
           }}
+          width={300}
           onCollapse={(collapsed, type) => {
             setCollapsed(collapsed);
           }}
@@ -44,6 +91,7 @@ const App: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             position: 'fixed',
             left: 0,
             zIndex: 999,
+            backgroundColor:"#094E85"
           }}
         >
           <div className="demo-logo-vertical" style={{ 
@@ -53,11 +101,28 @@ const App: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             justifyContent: 'center',
             color: 'white',
             fontSize: '18px',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            marginTop: '15px',
           }}>
-            Logo
+
+            <Image 
+              src="/images/logo.png" 
+              alt="Logo" 
+              width={250} 
+              height={40} 
+              style={{ objectFit: 'contain' }} 
+            />
           </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+          <div className='py-5 px-3'>
+          <Menu
+            theme="dark"
+            mode="inline"
+            defaultSelectedKeys={['4']}
+            items={items}
+            style={{ backgroundColor: '#094E85',fontSize: '16px',fontWeight: '600' }}
+            className="custom-sidebar-menu"
+          />
+          </div>
         </Sider>
         <Layout style={{ 
           marginLeft: broken ? 0 : (collapsed ? 0 : 200),
