@@ -18,6 +18,7 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { Layout, Menu, ConfigProvider } from 'antd';
+import AntHeader from './AntHeader';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -55,13 +56,13 @@ const items = [
 ].map(
   (icon, index) => ({
     key: String(index + 1),
-    icon: React.createElement(icon),
-    label: itemLabels[index],
+    icon: React.createElement(icon, { style: { color: '#fff' } }),
+    label: <span style={{ color: '#fff' }}>{itemLabels[index]}</span>,
   }),
 );
 
 const App: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const colorBgContainer = '#ffffff';
+  const colorBgContainer = '#f5f5f5';
   const borderRadiusLG = 8;
   const [broken, setBroken] = React.useState(false);
   const [collapsed, setCollapsed] = React.useState(false);
@@ -127,21 +128,10 @@ const App: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <Layout style={{ 
           marginLeft: broken ? 0 : (collapsed ? 0 : 200),
           minHeight: '100vh',
-          transition: 'margin-left 0.2s'
+          transition: 'margin-left 0.2s',
         }}>
-          <Header style={{ 
-            padding: '0 16px',
-            background: colorBgContainer,
-            position: 'sticky',
-            top: 0,
-            zIndex: 1,
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            boxShadow: '0 1px 2px 0 rgba(0, 0, 0, 0.03)'
-          }} />
+          <AntHeader />
           <Content style={{ 
-            margin: '24px 16px',
             height: 'calc(100vh - 112px)',
             overflow: 'auto'
           }}>
