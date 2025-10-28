@@ -117,8 +117,8 @@ export default function CustomActiveShapePieChart({
             data={pieData}
             cx="50%"
             cy="50%"
-            innerRadius="150%"
-            outerRadius="170%"
+            innerRadius="180%"
+            outerRadius="250%"
             dataKey="value"
             isAnimationActive={isAnimationActive}
           >
@@ -130,7 +130,7 @@ export default function CustomActiveShapePieChart({
         </PieChart>
       </div>
 
-      <div className='hidden md:block'>
+      <div className='hidden md:block mt-10'>
         <DataTable data={tableData} />
       </div>
     </div>
