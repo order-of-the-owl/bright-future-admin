@@ -15,12 +15,22 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ imageSrc, imageAlt, label, 
   <Dropdown menu={{ items: menuItems }}
   trigger={['click']}>
     <a onClick={e => e.preventDefault()} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-      <Space style={{color:"black"}}>
+      <Space align="center" style={{ color: "black", gap: '12px' }}>
         {imageSrc && (
-          <Image src={imageSrc} alt={imageAlt || 'dropdown image'} width={25} height={30} style={{ borderRadius: '50%' }} />
+          <div style={{ width: '32px', height: '32px', position: 'relative' }}>
+            <Image 
+              src={imageSrc} 
+              alt={imageAlt || 'dropdown image'} 
+              fill
+              style={{ 
+                borderRadius: '50%',
+                objectFit: 'cover'
+              }} 
+            />
+          </div>
         )}
-        {label}
-        <DownOutlined />
+        <span style={{ fontSize: '14px', fontWeight: 500 }}>{label}</span>
+        <DownOutlined style={{ fontSize: '12px' }} />
       </Space>
     </a>
   </Dropdown>
