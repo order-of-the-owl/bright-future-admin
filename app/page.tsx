@@ -1,9 +1,10 @@
 'use client';
-import React from 'react';
 import { Space } from 'antd';
 import DropdownMenu from './components/common/DropdownMenu';
 import Cards from './components/dashboard/cards';
 import { cardDetails,timeMenu,exportMenu,moreMenu } from '@/app/utils/constants/cardsData';
+import ChartCard from './components/dashboard/chartCard';
+import PieChartInFlexbox from './components/dashboard/pieChart';
 
 const Page = () => {
   return (
@@ -22,6 +23,10 @@ const Page = () => {
         {cardDetails.map((detail, index) => (
           <Cards key={index} details={detail} />
         ))}
+      </div>
+      <div className='grid sm:grid-cols-1 xl:grid-cols-2 mt-4 bg-blue rounded-lg gap-6'>
+        <ChartCard />
+        <PieChartInFlexbox />
       </div>
     </div>
   );
