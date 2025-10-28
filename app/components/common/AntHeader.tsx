@@ -53,7 +53,7 @@ const AntHeader: React.FC = () => {
           </div>
 
           <button
-            className="flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 border border-gray-200 shadow-sm transition-all"
+            className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-gray-100 border border-gray-200 shadow-sm transition-all"
             style={{ cursor: 'pointer' }}
           >
             <BellOutlined style={{ fontSize: 18, color: '#444' }} />
