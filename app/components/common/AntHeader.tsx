@@ -46,9 +46,15 @@ const AntHeader: React.FC = () => {
               onSearch={onSearch}
               size="large"
               style={{ 
-                width: 350
+                width: 350,
               }}
               rootClassName="h-[40px]"
+              className="custom-search"
+              styles={{
+                input: {
+                  backgroundColor: 'white',
+                }
+              }}
             />
           </div>
 
