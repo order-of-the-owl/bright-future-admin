@@ -117,8 +117,8 @@ export default function CustomActiveShapePieChart({
             data={pieData}
             cx="50%"
             cy="50%"
-            innerRadius="180%"
-            outerRadius="250%"
+            innerRadius="150%"
+            outerRadius="230%"
             dataKey="value"
             isAnimationActive={isAnimationActive}
           >

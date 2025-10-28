@@ -50,9 +50,9 @@ const ChartCard = () => {
     return (
         <div className='bg-white p-6 rounded-2xl shadow-sm flex flex-col'>
             <div className="flex justify-between">
-                <div className="flex flex-row gap-3 align-center justify-center">
-                    <h1 className="text-lg font-semibold text-gray-900">Monthly Revenue</h1>
-                    <p className="text-green-500 text-sm mt-1">$24,895.00</p>
+                <div className="flex flex-row  gap-1 md:gap-3 align-center justify-center">
+                    <h1 className="text-xs md:text-lg font-semibold text-gray-900">Monthly Revenue</h1>
+                    <p className="text-green-500  text-[6px] md:text-sm mt-1">$24,895.00</p>
                 </div>
 
                 <DropdownMenu
