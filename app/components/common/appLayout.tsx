@@ -160,7 +160,7 @@ const App: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <Image
               src="/images/logo.png"
               alt="Logo"
-              width={200}
+              width={240}
               height={40}
               style={{ objectFit: 'contain' }}
             />

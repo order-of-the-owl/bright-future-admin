@@ -79,7 +79,7 @@ const ChartCard = () => {
                 <XAxis dataKey="name" />
                 <YAxis width="auto" />
                 <Tooltip />
-                <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+                <Area type="monotone" dataKey="uv" stroke="#678ef7ff" fill="#a0bff3ff" />
             </AreaChart>
         </div>
     );
