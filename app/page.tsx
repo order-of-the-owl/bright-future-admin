@@ -1,10 +1,28 @@
 'use client';
-import { Space } from 'antd';
+
+import { Space, Spin } from 'antd';
+import dynamic from 'next/dynamic';
 import DropdownMenu from './components/common/DropdownMenu';
+import { cardDetails, timeMenu, exportMenu, moreMenu } from '@/app/utils/constants/cardsData';
 import Cards from './components/dashboard/cards';
-import { cardDetails,timeMenu,exportMenu,moreMenu } from '@/app/utils/constants/cardsData';
-import ChartCard from './components/dashboard/chartCard';
-import PieChartInFlexbox from './components/dashboard/pieChart';
+
+const ChartCard = dynamic(() => import('./components/dashboard/chartCard'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex justify-center items-center h-64">
+      <Spin size="large" tip="Loading chart..." />
+    </div>
+  ),
+});
+
+const PieChartInFlexbox = dynamic(() => import('./components/dashboard/pieChart'), {
+  ssr: false,
+  loading: () => (
+    <div className="flex justify-center items-center h-64">
+      <Spin size="large" tip="Loading chart..." />
+    </div>
+  ),
+});
 
 const Page = () => {
   return (
@@ -24,7 +42,8 @@ const Page = () => {
           <Cards key={index} details={detail} />
         ))}
       </div>
-      <div className='grid sm:grid-cols-1 xl:grid-cols-2 mt-4 bg-blue rounded-lg gap-6'>
+
+      <div className="grid sm:grid-cols-1 xl:grid-cols-2 mt-4 rounded-lg gap-6">
         <ChartCard />
         <PieChartInFlexbox />
       </div>
