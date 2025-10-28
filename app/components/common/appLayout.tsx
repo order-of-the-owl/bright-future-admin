@@ -36,7 +36,7 @@ const App: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     {
       key: '1',
       icon: <DashboardOutlined style={{ color: '#fff' }} />,
-      label: <Link href="/dashboard" style={{ color: '#fff' }}>Dashboard</Link>,
+      label: <Link href="/" style={{ color: '#fff' }}>Dashboard</Link>,
     },
     {
       key: '2',
@@ -134,7 +134,6 @@ const App: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       }}
     >
       <Layout style={{ minHeight: '100vh' }}>
-        {/* Sidebar */}
         <Sider
           breakpoint="lg"
           collapsedWidth="0"

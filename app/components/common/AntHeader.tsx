@@ -37,7 +37,7 @@ const AntHeader: React.FC = () => {
       }}
     >
       <div className="w-full flex justify-between items-center h-full">
-        <h1 className="md:ml-25 text-xl md:text-2xl font-bold text-gray-800">Dashboard</h1>
+        <h1 className="text-xl md:text-2xl font-bold text-gray-800">Dashboard</h1>
 
         <div className="flex items-center justify-center gap-3 md:gap-5">
           <div className="hidden md:block mt-7">
@@ -64,15 +64,12 @@ const AntHeader: React.FC = () => {
           >
             <BellOutlined style={{ fontSize: 18, color: '#444' }} />
           </button>
-
-          <div className="flex items-center bg-white border border-gray-200 rounded-full px-2 hover:bg-gray-50 shadow-sm transition-all h-[40px]">
             <DropdownMenu
               imageSrc="/images/avatar.jpeg"
               imageAlt="User avatar"
               label="John Doe"
               menuItems={menuItems}
             />
-          </div>
         </div>
       </div>
     </Header>
