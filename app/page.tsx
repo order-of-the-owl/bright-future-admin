@@ -3,9 +3,10 @@
 import DropdownMenu from './components/common/DropdownMenu';
 import { cardDetails, timeMenu, exportMenu, moreMenu } from '@/app/utils/constants/cardsData';
 import Cards from './components/dashboard/cards';
-import { Tag, Space, Spin } from 'antd'; 
+import { Tag, Space, Spin } from 'antd';
 import type { TableColumnsType } from 'antd';
 import { lazyLoadComponent } from './utils/helpers/lazyLoadComponent';
+import { useInViewRender } from './utils/hooks/useInViewRender'; // 👈 import hook
 
 interface DataType {
   key: React.Key;
@@ -63,19 +64,17 @@ const fakeData: DataType[] = Array.from({ length: 10 }).map((_, i) => ({
   status: i % 2 === 0 ? 'Active' : i % 3 === 0 ? 'Pending' : 'Expired',
 }));
 
-
-
 const ChartCard = lazyLoadComponent(() => import('./components/dashboard/chartCard'), 'chart');
 const PieChartInFlexbox = lazyLoadComponent(() => import('./components/dashboard/pieChart'), 'chart');
 const AntTable = lazyLoadComponent(() => import('./components/common/AntTable'), 'table');
 
-
 const Page = () => {
+  const [tableRef, isTableVisible] = useInViewRender(0.2); // 👈 use hook
+
   return (
     <div className="p-4">
       <div className="flex w-full flex-col md:flex-row md:justify-between items-center mb-6 gap-3">
         <h1 className="text-lg font-bold">Overview</h1>
-
         <Space>
           <DropdownMenu label="Last 7 days" menuItems={timeMenu} />
           <DropdownMenu label="Export" menuItems={exportMenu} />
@@ -94,14 +93,24 @@ const Page = () => {
         <PieChartInFlexbox />
       </div>
 
-      <div className="flex w-full flex-col md:flex-row md:justify-between items-center mb-6 gap-3">
+      <div
+        ref={tableRef}
+        className="flex flex-col md:flex-row md:justify-between items-center mb-6 gap-3"
+      >
         <h1 className="text-lg font-bold">Recently Joined</h1>
         <Space>
           <DropdownMenu label="Last 7 days" menuItems={timeMenu} />
         </Space>
       </div>
-      
-      <AntTable<DataType> columns={columns} data={fakeData} scrollX={1500} pageSize={5} />
+
+      <div>
+        {isTableVisible ? (
+          <AntTable<DataType> columns={columns} data={fakeData} scrollX={1500} pageSize={5} />
+        ) : (
+          <div className="">
+          </div>
+        )}
+      </div>
     </div>
   );
 };
