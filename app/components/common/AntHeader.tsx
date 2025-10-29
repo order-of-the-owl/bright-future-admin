@@ -40,7 +40,7 @@ const AntHeader: React.FC = () => {
         <h1 className="text-xl md:text-2xl font-bold text-gray-800">Dashboard</h1>
 
         <div className="flex items-center justify-center gap-3 md:gap-5">
-          <div className="hidden md:block mt-7">
+          <div className="hidden xl:block mt-7">
             <Search
               placeholder="Search for anything"
               onSearch={onSearch}
