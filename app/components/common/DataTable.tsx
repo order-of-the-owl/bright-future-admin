@@ -40,7 +40,7 @@ const columns: TableColumnsType<DataType> = [
       <div
         style={{
           width: 20,
-          height: 30,
+          height: 20,
           borderRadius: '50%',
           backgroundColor: color,
           border: '1px solid #ccc',

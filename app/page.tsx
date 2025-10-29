@@ -95,7 +95,7 @@ const Page = () => {
       </div>
 
       <div className="flex w-full flex-col md:flex-row md:justify-between items-center mb-6 gap-3">
-        <h1 className="text-lg font-bold">Overview</h1>
+        <h1 className="text-lg font-bold">Recently Joined</h1>
         <Space>
           <DropdownMenu label="Last 7 days" menuItems={timeMenu} />
         </Space>
