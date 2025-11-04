@@ -42,7 +42,7 @@ export default function InvoicesCard() {
 
   return (
     <Card className="h-full">
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between pb-4 border-b border-gray-200">
         <h3 className="text-xl font-bold text-gray-900">Recent Invoices</h3>
         <div className="flex items-center space-x-2 text-md text-gray-500">
           <button className='text-[#094E85] decoration-underline'>
