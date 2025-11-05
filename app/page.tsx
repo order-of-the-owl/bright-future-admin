@@ -133,10 +133,9 @@ const Page = () => {
             <InvoicesCard />
             <CouponsCard />
             <RecentActivityCard />
-            {/*
             <AdminTodoCard />
             <ScheduleCard />
-            <CalendarCard /> */}
+            <CalendarCard />
           </div>
         ) : (
           <div /> 
