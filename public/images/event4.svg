@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="270" viewBox="0 0 480 270">
+  <rect width="100%" height="100%" fill="#f7fff5" />
+  <rect x="16" y="16" width="448" height="238" rx="10" fill="#eaffef" stroke="#bff3c7" />
+  <text x="24" y="48" fill="#0b6b30" font-family="Arial, Helvetica, sans-serif" font-size="22">Panel Discussion on Blockchain</text>
+</svg>

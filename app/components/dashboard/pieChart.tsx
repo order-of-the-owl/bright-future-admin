@@ -93,47 +93,47 @@ export default function CustomActiveShapePieChart({
 }) {
   return (
     <div className='bg-white p-6 rounded-2xl shadow-sm '>
-        <div className="flex justify-between">
-                <div className="flex flex-row gap-3 align-center justify-center">
-                    <h1 className="text-lg font-semibold text-gray-900">Overview</h1>
-                </div>
+      <div className="flex justify-between">
+        <div className="flex flex-row gap-3 align-center justify-center">
+          <h1 className="text-lg font-semibold text-gray-900">Overview</h1>
+        </div>
 
-                <DropdownMenu
-                    label="All"
-                    menuItems={[
-                        { key: '1', label: 'This Month' },
-                        { key: '2', label: 'Last Month' },
-                    ]}
-                />
-            </div>
-    <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-center">
-      <div className="flex justify-center">
-        <PieChart
-          style={{ width: '100%', maxWidth: '480px', aspectRatio: 1 }}
-          margin={{ top: 50, right: 100, bottom: 0, left: 100 }}
-        >
-          <Pie
-            activeShape={renderActiveShape}
-            data={pieData}
-            cx="50%"
-            cy="50%"
-            innerRadius="150%"
-            outerRadius="230%"
-            dataKey="value"
-            isAnimationActive={isAnimationActive}
+        <DropdownMenu
+          label="All"
+          menuItems={[
+            { key: '1', label: 'This Month' },
+            { key: '2', label: 'Last Month' },
+          ]}
+        />
+      </div>
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 items-center">
+        <div className="flex justify-center">
+          <PieChart
+            style={{ width: '100%', maxWidth: '480px', aspectRatio: 1 }}
+            margin={{ top: 50, right: 100, bottom: 0, left: 100 }}
           >
-            {pieData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-            ))}
-          </Pie>
-          <Tooltip />
-        </PieChart>
-      </div>
+            <Pie
+              activeShape={renderActiveShape}
+              data={pieData}
+              cx="50%"
+              cy="50%"
+              innerRadius="150%"
+              outerRadius="230%"
+              dataKey="value"
+              isAnimationActive={isAnimationActive}
+            >
+              {pieData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+          </PieChart>
+        </div>
 
-      <div className='hidden md:block mt-10'>
-        <DataTable data={tableData} />
+        <div className='hidden md:block mt-10'>
+          <DataTable data={tableData} />
+        </div>
       </div>
-    </div>
     </div>
   );
 }
